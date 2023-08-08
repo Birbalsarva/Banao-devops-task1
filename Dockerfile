@@ -1,14 +1,6 @@
-# Python image as the base image
-FROM python:3.8-slim
+# Dockerfile
+FROM php:7.4-apache
 
-# Setting the working directory inside the container
-WORKDIR /app
+COPY ./index.php /var/www/html/
 
-# Copying the Python script into the container
-COPY server.py .
-
-# Exposing the port 8000 for the web server
-EXPOSE 8000
-
-# Running  the Python script to start the web server
-CMD ["python", "server.py"]
+EXPOSE 80
